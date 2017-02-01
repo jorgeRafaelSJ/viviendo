@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 			// GRUNT CONTRIB WATCH
 			watch: {
 				build: {
-					tasks: ["concat:build", "uglify:build"],
+					tasks: ["concat:source", "babel", "concat:add_vendors" ,"uglify:build"],
 					files: [
 						'app/index.js',
 						'app/controllers/*.js',
@@ -24,12 +24,9 @@ module.exports = function(grunt) {
 			},
 			// GRUNT CONTRIB CONCAT
 			concat: {
-				build: {
+				source: {
 					files: {
-						'public/js/build.js': [
-							//vendor files
-							'node_modules/angular/angular.min.js',
-							'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+						'public/js/build_es6.js': [
 							//app files
 							'app/index.js',
 							'app/directives/*.js',
@@ -38,10 +35,34 @@ module.exports = function(grunt) {
 							'app/factories/*.js'
 						]
 					}
+				},
+				add_vendors: {
+					files: {
+						'public/js/build.js': [
+							//vendor files
+							'node_modules/angular/angular.min.js',
+							'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+							//babelified source code
+							'public/js/build_es5.js'
+						]
+					}
 				}
+			},
+
+			babel: {
+			    options: {
+			        sourceMap: true,
+			        presets: ['babel-preset-es2015']
+			    },
+			    dist: {
+			        files: {
+			            'public/js/build_es5.js': 'public/js/build_es6.js'
+			        }
+			    }
 			}
 		});
 
+		grunt.loadNpmTasks('grunt-babel')
 		grunt.loadNpmTasks('grunt-contrib-concat');
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		grunt.loadNpmTasks('grunt-contrib-uglify');

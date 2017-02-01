@@ -1,1 +1,4 @@
 node_modules
+public/js/build_es5.js
+public/js/build_es5.js.map
+public/js/build_es6.js
