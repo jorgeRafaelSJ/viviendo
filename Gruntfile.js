@@ -4,33 +4,38 @@ module.exports = function(grunt) {
 			// GRUNT CONTRIB WATCH
 			watch: {
 				build: {
-					tasks: ["concat:build", "uglify"],
+					tasks: ["concat:build", "uglify:build"],
 					files: [
-						'/node_modules/*',
 						'app/index.js',
-						'app/js/controllers/*.js',
-						'app/js/directives/*.js',
-						'app/js/services/*.js',
-						'app/js/factories/*.js'
+						'app/controllers/*.js',
+						'app/directives/*.js',
+						'app/services/*.js',
+						'app/factories/*.js'
 					]
 				}
 			},
 			// GRUNT CONTRIB UGLIFY
 			uglify: {
-	      files: {
-	        'public/js/build.min.js': ['app/js/build.js']
-	      }
+				build: {
+	      	files: {
+	        	'public/js/build.min.js': ['public/js/build.js']
+	      	}
+	    	}
 			},
 			// GRUNT CONTRIB CONCAT
 			concat: {
 				build: {
 					files: {
 						'public/js/build.js': [
+							//vendor files
+							'node_modules/angular/angular.min.js',
+							'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+							//app files
 							'app/index.js',
-							'app/js/directives/*.js',
-							'app/js/services/*.js',
-							'app/js/controllers/*.js',
-							'app/js/factories/*.js'
+							'app/directives/*.js',
+							'app/services/*.js',
+							'app/controllers/*.js',
+							'app/factories/*.js'
 						]
 					}
 				}
