@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"../../styles/main.scss",
+		"../../styles/_navbar.scss",
+		"../../styles/_video-box.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

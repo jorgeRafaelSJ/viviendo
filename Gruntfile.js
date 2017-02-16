@@ -12,6 +12,12 @@ module.exports = function(grunt) {
 						'app/services/*.js',
 						'app/factories/*.js'
 					]
+				},
+				sass: {
+					tasks: ["sass"],
+					files: [
+						'styles/*.scss'
+					]
 				}
 			},
 			// GRUNT CONTRIB UGLIFY
@@ -59,10 +65,22 @@ module.exports = function(grunt) {
 			            'public/js/build_es5.js': 'public/js/build_es6.js'
 			        }
 			    }
+			},
+
+			sass: {
+				options: {
+				  sourceMap: true
+				},
+				dist: {
+          files: {
+            'public/css/main.css': 'styles/main.scss'
+          }
+        }
 			}
 		});
 
-		grunt.loadNpmTasks('grunt-babel')
+		grunt.loadNpmTasks('grunt-sass')
+		grunt.loadNpmTasks('grunt-babel');
 		grunt.loadNpmTasks('grunt-contrib-concat');
 		grunt.loadNpmTasks('grunt-contrib-watch');
 		grunt.loadNpmTasks('grunt-contrib-uglify');

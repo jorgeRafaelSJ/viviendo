@@ -6,9 +6,5 @@ angular
 		
 		let vm = this;
 
-		vm.sayHello = () => {
-			console.log('ES6 WORKING');
-		};
-
-		vm.sayHello();
+		
 	}]);

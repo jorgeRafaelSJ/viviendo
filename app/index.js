@@ -21,7 +21,7 @@ angular.module('app', ['ui.router'])
     	    controller: 'Main',
     	    controllerAs: 'vm'
     	  });
-
+         
     	$urlRouterProvider.otherwise('/');
 
     	$locationProvider.html5Mode({
