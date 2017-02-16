@@ -7,12 +7,14 @@ angular.module('app', ['ui.router'])
     '$urlRouterProvider',
     '$locationProvider',
     '$httpProvider',
+    '$sceDelegateProvider',
     	
     function(
     	$stateProvider,
     	$urlRouterProvider,
     	$locationProvider,
-    	$httpProvider){
+    	$httpProvider,
+        $sceDelegateProvider){
 
     	$stateProvider
     	  .state('home', {
@@ -20,7 +22,13 @@ angular.module('app', ['ui.router'])
     	    templateUrl: '../views/home.html',
     	    controller: 'Main',
     	    controllerAs: 'vm'
-    	  });
+    	  })
+          .state('project', {
+            url: "/:project",
+            templateUrl: '../views/project.html',
+            controller: 'Main',
+            controllerAs: 'vm'
+          });
          
     	$urlRouterProvider.otherwise('/');
 
@@ -28,4 +36,9 @@ angular.module('app', ['ui.router'])
     	  enabled: true,
     	  requireBase: false
     	});
+
+        $sceDelegateProvider.resourceUrlWhitelist([
+            'self',
+            'https://www.youtube.com/**'
+        ]);
     }])

@@ -341,34 +341,80 @@ c){var f=a|0,e=c;void 0===e&&(e=Math.min(b(a),3));Math.pow(10,e);return 1==f&&0=
 for(var g=0;g<d.length;g++)if(!a(d[g],f[g]))return!1;return!0}}this.encode=h(d(a,"encode")),this.decode=h(d(a,"decode")),this.is=h(d(a,"is"),!0),this.equals=i(d(a,"equals")),this.pattern=a.pattern,this.$normalize=h(d(a,"$normalize")),this.name=a.name,this.$arrayMode=b}if(!a)return this;if("auto"===a&&!b)throw new Error("'auto' array mode is for query parameters only");return new d(this,a)},b.module("ui.router.util").provider("$urlMatcherFactory",v),b.module("ui.router.util").run(["$urlMatcherFactory",function(a){}]),w.$inject=["$locationProvider","$urlMatcherFactoryProvider"],b.module("ui.router.router").provider("$urlRouter",w),x.$inject=["$urlRouterProvider","$urlMatcherFactoryProvider"],b.module("ui.router.state").factory("$stateParams",function(){return{}}).constant("$state.runtime",{autoinject:!0}).provider("$state",x).run(["$injector",function(a){a.get("$state.runtime").autoinject&&a.get("$state")}]),y.$inject=[],b.module("ui.router.state").provider("$view",y),b.module("ui.router.state").provider("$uiViewScroll",z),A.$inject=["$state","$injector","$uiViewScroll","$interpolate","$q"],B.$inject=["$compile","$controller","$state","$interpolate"],b.module("ui.router.state").directive("uiView",A),b.module("ui.router.state").directive("uiView",B),I.$inject=["$state","$timeout"],J.$inject=["$state","$timeout"],K.$inject=["$state","$stateParams","$interpolate"],b.module("ui.router.state").directive("uiSref",I).directive("uiSrefActive",K).directive("uiSrefActiveEq",K).directive("uiState",J),L.$inject=["$state"],M.$inject=["$state"],b.module("ui.router.state").filter("isState",L).filter("includedByState",M)}(window,window.angular);
 'use strict';
 
-angular.module('app', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+angular.module('app', ['ui.router']).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$sceDelegateProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
 
-  $stateProvider.state('home', {
-    url: "/",
-    templateUrl: '../views/home.html',
-    controller: 'Main',
-    controllerAs: 'vm'
-  });
+	$stateProvider.state('home', {
+		url: "/",
+		templateUrl: '../views/home.html',
+		controller: 'Main',
+		controllerAs: 'vm'
+	}).state('project', {
+		url: "/:project",
+		templateUrl: '../views/project.html',
+		controller: 'Main',
+		controllerAs: 'vm'
+	});
 
-  $urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/');
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	});
+
+	$sceDelegateProvider.resourceUrlWhitelist(['self', 'https://www.youtube.com/**']);
 }]);
-angular.module('app').directive('videoBox', ['$rootScope', function ($rootScope) {
-  return {
-    restrict: 'E',
-    scope: {},
-    templateUrl: '/views/_video-box.html',
-    link: function link(scope, element, attrs) {}
-  };
+angular.module('app').directive('navbar', ['$location', function ($location) {
+	return {
+		restrict: 'E',
+		templateUrl: '../views/_navbar.html',
+		link: function link(scope, element, attrs) {
+			scope.goHome = function () {};
+		}
+	};
+}]);
+angular.module('app').directive('videoBox', ['$rootScope', '$location', function ($rootScope, $location) {
+	return {
+		restrict: 'E',
+		scope: {
+			vid: '=?vid'
+		},
+		templateUrl: '/views/_video-box.html',
+		link: function link(scope, element, attrs) {
+			var mapper = {
+				goodjar: 0,
+				laundryvirgins: 1,
+				gathering: 'link',
+				belliesinconcert: 2,
+				mitide: 3,
+				osito: 4,
+				snapchatworlds: 5,
+				truedirt: 6,
+				mas: 7,
+				vanguardgrandma: 8,
+				lullaby: 9,
+				washawaylabels: 10,
+				cat: 11
+			};
+
+			var videos = [{ name: 'goodjar', link: 'https://www.youtube.com/v/jnC1Oi4i-Oo' }, { name: 'laundryvirgins', link: 'https://www.youtube.com/v/3b2uTQTDnpQ' }, { name: 'gathering', link: ' www.jorgerafaelsj.com' }, { name: 'belliesinconcert', link: ' www.jorgerafaelsj.com' }, { name: 'mitide', link: ' www.jorgerafaelsj.com' }, { name: 'osito', link: ' www.jorgerafaelsj.com' }, { name: 'snapchatworlds', link: ' www.jorgerafaelsj.com' }, { name: 'truedirt', link: ' www.jorgerafaelsj.com' }, { name: 'mas', link: ' www.jorgerafaelsj.com' }, { name: 'vanguardgrandma', link: ' www.jorgerafaelsj.com' }, { name: 'lullaby', link: ' www.jorgerafaelsj.com' }, { name: 'washawaylabels', link: ' www.jorgerafaelsj.com' }, { name: 'cat', link: ' www.jorgerafaelsj.com' }];
+
+			scope.loadVideo = function () {
+				if (mapper[$location.$$path.replace('/', '')] >= 0) {
+					scope.vid = videos[mapper[$location.$$path.replace('/', '')]];
+				} else {
+					$location.path('/');
+				}
+			};
+
+			scope.loadVideo();
+		}
+	};
 }]);
 "use strict";
 
 angular.module('app').controller('Main', ['$rootScope', function ($rootScope) {
 
-  var vm = this;
+	var vm = this;
 }]);
 //# sourceMappingURL=build_es5.js.map
