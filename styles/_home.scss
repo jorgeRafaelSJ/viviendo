@@ -1,0 +1,39 @@
+#project-list {
+	margin: 20px;
+}
+.project-title {
+	display: inline-block;
+	font-size: 35px;
+	margin: 2px;
+	cursor: pointer;
+}
+.mustard {
+	color: $mustard;
+
+	&:hover {
+		color: $dark-grey;
+	}
+}
+.dark-grey {
+	color: $dark-grey;
+
+	&:hover {
+		color: $grey;
+	}
+}
+.grey {
+	color: $grey;
+
+	&:hover {
+		color: $mustard;
+	}
+}
+.profile-image-container {
+	width: 10vw;
+	display: flex;
+	justify-content: center;
+}
+.profile-image {
+	height: 80px;
+	width: 80px;
+}

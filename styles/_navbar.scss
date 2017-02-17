@@ -1,0 +1,29 @@
+#navbar {
+	width: 80vw;
+	margin: 0 10vw;
+	padding: 6vh 0 2px 0;
+	min-height: 28px;
+	font-size: 26px;
+}
+#navbar-title {
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+		color: $mustard;
+	}
+}
+.main-container {
+	display: flex;
+	height: 88vh;
+}
+.left-container {
+	width: 10vw;
+	height: 80vh;
+}
+.right-container {
+	width: 80vw;
+	height: 80vh;
+	border-top: 2px solid $mustard;
+	border-left: 2px solid $mustard;
+}

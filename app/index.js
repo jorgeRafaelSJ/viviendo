@@ -39,6 +39,7 @@ angular.module('app', ['ui.router'])
 
         $sceDelegateProvider.resourceUrlWhitelist([
             'self',
+            'http://www.youtube.com/**',
             'https://www.youtube.com/**'
         ]);
     }])

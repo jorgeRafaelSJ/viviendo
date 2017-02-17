@@ -1,3 +1,42 @@
 #video-box {
-	border: 1px solid black;
+
+}
+#video-row {
+	display: flex;
+}
+.video-frame {
+	display: block;
+	margin: 10vh 0;
+	width: 65vw;
+	height: 50vh;
+}
+.video-title {
+	width: 65vw;
+	margin: 10px auto 0 auto;
+	display: block;
+}
+.video-arrow-div {
+	width: 7.5vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.video-arrow {
+	color: $grey;
+	font-size: 35px;
+	height: 40px;
+	width: 40px !important;
+	padding: 0;
+	border: none;
+	background-color: white;
+	justify-content: center;
+	cursor: pointer;
+
+	&:hover {
+		color: $mustard;
+	}
+
+	&:active, &:focus {
+		outline: none;
+	}
 }

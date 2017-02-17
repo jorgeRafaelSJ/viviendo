@@ -362,14 +362,16 @@ angular.module('app', ['ui.router']).config(['$stateProvider', '$urlRouterProvid
 		requireBase: false
 	});
 
-	$sceDelegateProvider.resourceUrlWhitelist(['self', 'https://www.youtube.com/**']);
+	$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.youtube.com/**', 'https://www.youtube.com/**']);
 }]);
 angular.module('app').directive('navbar', ['$location', function ($location) {
 	return {
 		restrict: 'E',
 		templateUrl: '../views/_navbar.html',
 		link: function link(scope, element, attrs) {
-			scope.goHome = function () {};
+			scope.goHome = function () {
+				$location.path('/');
+			};
 		}
 	};
 }]);
@@ -384,37 +386,49 @@ angular.module('app').directive('videoBox', ['$rootScope', '$location', function
 			var mapper = {
 				goodjar: 0,
 				laundryvirgins: 1,
-				gathering: 'link',
-				belliesinconcert: 2,
-				mitide: 3,
-				osito: 4,
-				snapchatworlds: 5,
-				truedirt: 6,
-				mas: 7,
-				vanguardgrandma: 8,
-				lullaby: 9,
-				washawaylabels: 10,
-				cat: 11
+				gathering: 2,
+				belliesinconcert: 3,
+				mitide: 4,
+				osito: 5,
+				snapchatworlds: 6,
+				truedirt: 7,
+				mas: 8,
+				vanguardgrandma: 9,
+				lullaby: 10,
+				washawaylabels: 11,
+				cat: 12
 			};
 
-			var videos = [{ name: 'goodjar', link: 'https://www.youtube.com/v/jnC1Oi4i-Oo' }, { name: 'laundryvirgins', link: 'https://www.youtube.com/v/3b2uTQTDnpQ' }, { name: 'gathering', link: ' www.jorgerafaelsj.com' }, { name: 'belliesinconcert', link: ' www.jorgerafaelsj.com' }, { name: 'mitide', link: ' www.jorgerafaelsj.com' }, { name: 'osito', link: ' www.jorgerafaelsj.com' }, { name: 'snapchatworlds', link: ' www.jorgerafaelsj.com' }, { name: 'truedirt', link: ' www.jorgerafaelsj.com' }, { name: 'mas', link: ' www.jorgerafaelsj.com' }, { name: 'vanguardgrandma', link: ' www.jorgerafaelsj.com' }, { name: 'lullaby', link: ' www.jorgerafaelsj.com' }, { name: 'washawaylabels', link: ' www.jorgerafaelsj.com' }, { name: 'cat', link: ' www.jorgerafaelsj.com' }];
+			var videos = [{ path: 'goodjar', name: 'Good Jar', link: 'https://www.youtube.com/embed/N96ponWgMOo' }, { path: 'laundryvirgins', name: 'Laundry Virgins', link: 'https://www.youtube.com/embed/1oRI_2BSSzM' }, { path: 'gathering', name: 'Gathering', link: 'https://www.youtube.com/embed/L0gNOdhFgHA' }, { path: 'belliesinconcert', name: 'Bellies In Concert', link: 'https://www.youtube.com/embed/xcK4cGXWITo' }, { path: 'mitide', name: 'Mi Tide', link: 'https://www.youtube.com/embed/Xt6S2hj1FcA' }, { path: 'osito', name: 'Osito', link: 'https://www.youtube.com/embed/f60uI8T3mX8' }, { path: 'snapchatworlds', name: 'Snapchat Worlds', link: 'https://www.youtube.com/embed/gE9ELwiTJ2w' }, { path: 'truedirt', name: 'True Dirt', link: 'https://www.youtube.com/embed/n7fpSDiu-zQ' }, { path: 'mas', name: 'Mas', link: 'https://www.youtube.com/embed/3H9qk7fI6ZA' }, { path: 'vanguardgrandma', name: 'Vanguard Grandma', link: 'https://www.youtube.com/embed/sYw2IGNFuEs' }, { path: 'lullaby', name: 'Lullaby', link: 'https://www.youtube.com/embed/HdO5ZLffPaU' }, { path: 'washawaylabels', name: '#WashAwayLabels', link: 'https://www.youtube.com/embed/ND6Guy5OVHU' }, { path: 'cat', name: 'Cat', link: ' www.jorgerafaelsj.com' }];
 
-			scope.loadVideo = function () {
-				if (mapper[$location.$$path.replace('/', '')] >= 0) {
-					scope.vid = videos[mapper[$location.$$path.replace('/', '')]];
+			var videoIndex = mapper[$location.$$path.replace('/', '')];
+			var loadVideo = function () {
+				if (videoIndex >= 0) {
+					scope.vid = videos[videoIndex];
 				} else {
 					$location.path('/');
 				}
+			}();
+
+			scope.nextVideo = function () {
+				$location.path('/' + videos[videoIndex + 1].path);
 			};
 
-			scope.loadVideo();
+			scope.previousVideo = function () {
+				$location.path('/' + videos[videoIndex - 1].path);
+			};
 		}
 	};
 }]);
 "use strict";
 
-angular.module('app').controller('Main', ['$rootScope', function ($rootScope) {
+angular.module('app').controller('Main', ['$rootScope', '$location', function ($rootScope, $location) {
 
 	var vm = this;
+
+	vm.goToVid = function (video) {
+		console.log(video);
+		$location.path('/' + video);
+	};
 }]);
 //# sourceMappingURL=build_es5.js.map
