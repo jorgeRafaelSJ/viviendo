@@ -65,16 +65,18 @@ table {
 
 .left-container {
   width: 10vw;
-  height: 80vh; }
+  height: 80vh;
+  position: relative; }
 
 .right-container {
   width: 80vw;
   height: 80vh;
   border-top: 2px solid #C8A92E;
-  border-left: 2px solid #C8A92E; }
+  border-left: 2px solid #C8A92E;
+  position: relative; }
 
 #project-list {
-  margin: 20px; }
+  margin: 40px 0 0 20px; }
 
 .project-title {
   display: inline-block;
@@ -90,7 +92,7 @@ table {
 .dark-grey {
   color: #404040; }
   .dark-grey:hover {
-    color: #7F7F7F; }
+    color: #C8A92E; }
 
 .grey {
   color: #7F7F7F; }
@@ -100,27 +102,75 @@ table {
 .profile-image-container {
   width: 10vw;
   display: flex;
-  justify-content: center; }
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0; }
 
 .profile-image {
-  height: 80px;
-  width: 80px; }
+  height: 60px;
+  width: 60px;
+  margin-right: 10px; }
+  @media (max-width: 800px) {
+    .profile-image {
+      display: none; } }
+
+#summary-list {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 13px; }
+
+@media (max-width: 770px) {
+  .summary-item {
+    font-size: 10px; } }
+
+@media (max-width: 416px) {
+  .summary-item {
+    font-size: 8px; } }
+
+.left-nav-item {
+  vertical-align: top;
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  padding: 2px 4px;
+  cursor: pointer;
+  color: #C8A92E;
+  font-size: 16px;
+  border: none;
+  background-color: white; }
+  .left-nav-item:hover {
+    color: #404040; }
+  .left-nav-item:active, .left-nav-item:focus {
+    outline: none; }
+
+.main-left-nav-btn {
+  position: absolute;
+  right: -10px;
+  top: 60px; }
+
+.home-left-nav {
+  right: -12px; }
 
 #video-row {
   display: flex; }
 
 .video-frame {
   display: block;
-  margin: 10vh 0;
   width: 65vw;
-  height: 50vh; }
+  height: 60vh;
+  background-color: black;
+  margin-top: 10px; }
 
 .video-title {
   width: 65vw;
-  margin: 10px auto 0 auto;
-  display: block; }
+  margin: 10vh auto 0 auto;
+  display: block;
+  font-size: 18px;
+  color: #C8A92E; }
 
 .video-arrow-div {
+  margin-top: 10px;
   width: 7.5vw;
   display: flex;
   justify-content: center;

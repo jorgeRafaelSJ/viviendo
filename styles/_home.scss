@@ -1,5 +1,5 @@
 #project-list {
-	margin: 20px;
+	margin: 40px 0 0 20px;
 }
 .project-title {
 	display: inline-block;
@@ -18,7 +18,7 @@
 	color: $dark-grey;
 
 	&:hover {
-		color: $grey;
+		color: $mustard;
 	}
 }
 .grey {
@@ -31,9 +31,57 @@
 .profile-image-container {
 	width: 10vw;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
+	position: absolute;
+	bottom: 0;
 }
 .profile-image {
-	height: 80px;
-	width: 80px;
+	height: 60px;
+	width: 60px;
+	margin-right: 10px;
+
+	@media (max-width: 800px) {
+		display: none;
+	}
+}
+#summary-list {
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	font-size: 13px;
+}
+.summary-item {
+	@media (max-width: 770px) {
+		font-size: 10px;
+	}
+	@media (max-width: 416px) {
+		font-size: 8px;
+	}
+}
+.left-nav-item {
+	vertical-align: top;
+	-ms-transform: rotate(-90deg); 
+  -webkit-transform: rotate(-90deg); 
+  transform: rotate(-90deg);
+	padding: 2px 4px;
+	cursor: pointer;
+	color: $mustard;
+	font-size: 16px; 
+	border: none;
+	background-color: white;
+	
+	&:hover {
+		color: $dark-grey;
+	}
+	&:active, &:focus {
+		outline: none;
+	}
+}
+.main-left-nav-btn {
+	position: absolute;
+	right: -10px;
+	top: 60px;
+}
+.home-left-nav {
+	right: -12px;
 }

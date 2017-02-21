@@ -1,21 +1,26 @@
 #video-box {
-
+	
 }
 #video-row {
 	display: flex;
 }
 .video-frame {
 	display: block;
-	margin: 10vh 0;
 	width: 65vw;
-	height: 50vh;
+	height: 60vh;
+	background-color: black;
+	margin-top: 10px;
 }
 .video-title {
 	width: 65vw;
-	margin: 10px auto 0 auto;
+	margin: 10vh auto 0 auto;
 	display: block;
+	// font-weight: bold;
+	font-size: 18px;
+	color: $mustard;
 }
 .video-arrow-div {
+	margin-top: 10px;
 	width: 7.5vw;
 	display: flex;
 	justify-content: center;

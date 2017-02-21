@@ -21,7 +21,8 @@ angular
 					vanguardgrandma: 9,
 					lullaby: 10,
 					washawaylabels: 11,
-					cat: 12
+					gnomes: 12,
+					teddy: 13
 				}
 
 				const videos = [
@@ -37,7 +38,8 @@ angular
 					{path: 'vanguardgrandma', name: 'Vanguard Grandma', link:'https://www.youtube.com/embed/sYw2IGNFuEs'},
 					{path: 'lullaby', name: 'Lullaby', link:'https://www.youtube.com/embed/HdO5ZLffPaU'},
 					{path: 'washawaylabels', name: '#WashAwayLabels', link:'https://www.youtube.com/embed/ND6Guy5OVHU'},
-					{path: 'cat', name: 'Cat', link:' www.jorgerafaelsj.com'},
+					{path: 'gnomes', name: 'Gnomes', link:'https://www.youtube.com/embed/_F-8LMKu4Ws'},
+					{path: 'teddy', name: 'Teddy', link:'https://www.youtube.com/embed/MdoGhFljcnI'},
 				];
 
 				let videoIndex = mapper[$location.$$path.replace('/', '')]; 
