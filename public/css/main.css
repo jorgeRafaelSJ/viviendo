@@ -50,14 +50,21 @@ table {
   width: 80vw;
   margin: 0 10vw;
   padding: 6vh 0 2px 0;
-  min-height: 28px;
   font-size: 26px; }
+  @media (max-width: 380px) {
+    #navbar {
+      font-size: 23px;
+      margin: 0 6vw; } }
 
 #navbar-title {
   display: inline-block;
   cursor: pointer; }
   #navbar-title:hover {
     color: #C8A92E; }
+  @media (max-width: 340px) {
+    #navbar-title {
+      display: block;
+      font-size: 18px; } }
 
 .main-container {
   display: flex;
@@ -67,6 +74,9 @@ table {
   width: 10vw;
   height: 80vh;
   position: relative; }
+  @media (max-width: 380px) {
+    .left-container {
+      display: none; } }
 
 .right-container {
   width: 80vw;
@@ -74,15 +84,36 @@ table {
   border-top: 2px solid #C8A92E;
   border-left: 2px solid #C8A92E;
   position: relative; }
+  @media (max-width: 380px) {
+    .right-container {
+      width: 100vw;
+      border-left: none;
+      height: 85vh; } }
 
 #project-list {
   margin: 40px 0 0 20px; }
+  @media (max-width: 340px) {
+    #project-list {
+      margin: 20px 0 0 10px; } }
 
 .project-title {
   display: inline-block;
   font-size: 35px;
   margin: 2px;
   cursor: pointer; }
+  @media (max-width: 750px) {
+    .project-title {
+      font-size: 26px; } }
+  @media (max-width: 416px) {
+    .project-title {
+      font-size: 22px; } }
+  @media (max-width: 380px) {
+    .project-title {
+      display: block;
+      font-size: 22px; } }
+  @media (max-width: 340px) {
+    .project-title {
+      font-size: 16px; } }
 
 .mustard {
   color: #C8A92E; }
@@ -119,14 +150,18 @@ table {
   bottom: 5px;
   left: 10px;
   font-size: 13px; }
+  @media (max-width: 380px) {
+    #summary-list {
+      margin: 0 15px;
+      left: 0; } }
 
 @media (max-width: 770px) {
   .summary-item {
     font-size: 10px; } }
 
-@media (max-width: 416px) {
+@media (max-width: 380px) {
   .summary-item {
-    font-size: 8px; } }
+    font-size: 9px; } }
 
 .left-nav-item {
   vertical-align: top;
@@ -161,6 +196,9 @@ table {
   height: 60vh;
   background-color: black;
   margin-top: 10px; }
+  @media (max-width: 380px) {
+    .video-frame {
+      width: 80vw; } }
 
 .video-title {
   width: 65vw;
@@ -168,6 +206,12 @@ table {
   display: block;
   font-size: 18px;
   color: #C8A92E; }
+  @media (max-width: 380px) {
+    .video-title {
+      width: 80vw; } }
+  @media (max-width: 330px) {
+    .video-title {
+      font-size: 14px; } }
 
 .video-arrow-div {
   margin-top: 10px;
@@ -175,6 +219,9 @@ table {
   display: flex;
   justify-content: center;
   align-items: center; }
+  @media (max-width: 380px) {
+    .video-arrow-div {
+      width: 10vw; } }
 
 .video-arrow {
   color: #7F7F7F;
