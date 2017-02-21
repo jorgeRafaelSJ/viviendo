@@ -42,12 +42,21 @@ angular
 					{path: 'teddy', name: 'Teddy', link:'https://www.youtube.com/embed/MdoGhFljcnI'},
 				];
 
+				scope.firstVideo = false;
+				scope.lastVideo = false;
+
 				let videoIndex = mapper[$location.$$path.replace('/', '')]; 
 				const loadVideo = (() => {
 					if(videoIndex >= 0) {
 						scope.vid = videos[videoIndex];
 					} else {
 						$location.path('/')
+					}
+
+					if(videoIndex === 0) {
+						scope.firstVideo = true;
+					} else if(videoIndex === videos.length - 1) {
+						scope.lastVideo = true;
 					}
 				})();
 

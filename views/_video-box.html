@@ -2,11 +2,11 @@
 	<h1 class="video-title">{{vid.name}}</h1>
 	<div id="video-row">
 		<div class="video-arrow-div">
-			<button ng-click='previousVideo()' class="ion-chevron-left video-arrow"/>
+			<button ng-if="!firstVideo" ng-click='previousVideo()' class="ion-chevron-left video-arrow"/>
 		</div>
 		<iframe class="video-frame" type="text/html" allowscriptaccess="always" src="{{vid.link}}" frameborder="0" allowfullscreen><p>Your browser does not support iframes.</p></iframe>
 		<div class="video-arrow-div">
-			<button ng-click='nextVideo()' class="ion-chevron-right video-arrow"/>
+			<button ng-if="!lastVideo"ng-click='nextVideo()' class="ion-chevron-right video-arrow"/>
 		</div>
 	</div>
 </div>
