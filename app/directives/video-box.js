@@ -33,7 +33,7 @@ angular
 					{path: 'mitide', name: 'Mi Tide', link:'https://www.youtube.com/embed/Xt6S2hj1FcA'},
 					{path: 'osito', name: 'Osito', link:'https://www.youtube.com/embed/f60uI8T3mX8'},
 					{path: 'snapchatworlds', name: 'Snapchat Worlds', link:'https://www.youtube.com/embed/gE9ELwiTJ2w'},
-					{path: 'truedirt', name: 'True Dirt', link:'https://www.youtube.com/embed/n7fpSDiu-zQ'},
+					{path: 'truedirt', name: 'True Dirt', link:'https://www.youtube.com/embed/3J2HUwcra54'},
 					{path: 'mas', name: 'Mas', link:'https://www.youtube.com/embed/3H9qk7fI6ZA'},
 					{path: 'vanguardgrandma', name: 'Vanguard Grandma', link:'https://www.youtube.com/embed/sYw2IGNFuEs'},
 					{path: 'lullaby', name: 'Lullaby', link:'https://www.youtube.com/embed/HdO5ZLffPaU'},
