@@ -7,7 +7,6 @@ angular
 		const vm = this;
 
 		vm.goToVid = (video) => {
-			console.log(video);
 			$location.path(`/${video}`);
 		};
 	}]);

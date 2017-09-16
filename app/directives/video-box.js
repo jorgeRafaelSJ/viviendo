@@ -9,23 +9,25 @@ angular
 			templateUrl: '/views/_video-box.html',
 			link: (scope,element,attrs) => {
 				const mapper = {
-					goodjar: 0,
-					laundryvirgins: 1,
-					gathering: 2,
-					belliesinconcert: 3,
-					mitide: 4,
-					osito: 5,
-					snapchatworlds: 6,
-					truedirt: 7,
-					mas: 8,
-					vanguardgrandma: 9,
-					lullaby: 10,
-					washawaylabels: 11,
-					gnomes: 12,
-					teddy: 13
+					tundragoldcup: 0,
+					goodjar: 1,
+					laundryvirgins: 2,
+					gathering: 3,
+					belliesinconcert: 4,
+					mitide: 5,
+					osito: 6,
+					snapchatworlds: 7,
+					truedirt: 8,
+					mas: 9,
+					vanguardgrandma: 10,
+					lullaby: 11,
+					washawaylabels: 12,
+					gnomes: 13,
+					teddy: 14
 				}
 
 				const videos = [
+					{path: 'tundragoldcup', name: 'Tundra Gold Cup', link: 'https://www.youtube.com/embed/-ehaeTh9rk4'},
 					{path: 'goodjar', name: 'Good Jar', link: 'https://www.youtube.com/embed/N96ponWgMOo'},
 					{path: 'laundryvirgins', name: 'Laundry Virgins', link:'https://www.youtube.com/embed/1oRI_2BSSzM'},
 					{path: 'gathering', name: 'Gathering', link:'https://www.youtube.com/embed/L0gNOdhFgHA'},
